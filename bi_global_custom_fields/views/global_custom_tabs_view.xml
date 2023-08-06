@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- Global Custom Tabs Wizard View -->
+		<record id="global_custom_tabs_wizard_view" model="ir.ui.view">
+			<field name="model">ir.global.tabs</field>
+			<field name="arch" type="xml">
+			<form string="Custom Global Tabs" duplicate="false">
+				<sheet>
+					<group>
+						<group>
+							<field name="name"/>
+							<field name="field_description"/>
+							<field name="tab_list" options="{'no_create':True}"/>
+						</group>
+						<group>
+							<field name="model_id"/>
+							<field name="where_to_add"/>
+							<field name="groups" options="{'no_create': True}" widget="many2many_tags"/>
+						</group>
+					</group>
+					<footer>
+						<button name="create_global_custome_tabs" type="object" string="Add Tab" class="btn btn-primary active" icon="fa-plus-square"/>
+						
+						<button string="Cancel" class="btn btn-danger disabled" special="cancel" icon="fa-times"/>
+					</footer>
+				</sheet>
+			</form>
+			</field>
+		</record>
+
+
+		<!-- Global Custom Tabs Wizard Action -->
+		<record id="global_custom_tabs_wizard_action" model="ir.actions.act_window">
+			<field name="name">Custom Global Tabs</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">ir.global.tabs</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<!-- Global Custom Tabs Tree View -->
+		<record id="global_custom_tabs_tree_view" model="ir.ui.view">
+			<field name="name">ir.global.tabs.tree</field>
+			<field name="model">ir.global.tabs</field>
+			<field name="priority">5</field>
+			<field name="arch" type="xml">
+					<tree string="Custom Global Tabs" create="false">
+						<field name="name"/>
+						<field name="field_description"/>
+						<field name="model_id"/>
+						<button name="update_tab" type="object" string="Update Tab" class="btn btn-outline-info btn-sm active" />
+					</tree>
+			</field>
+		</record>
+
+
+		<!--Group by view-->
+		<record id="custom_tab_search_view" model="ir.ui.view">   
+		    <field name="name">custom.tab.search.view</field>   
+		    <field name="model">ir.global.tabs</field>   
+		    <field name="arch" type="xml">       
+		        <search string="Model">           
+		            <filter name="model_tabs" string="Model" icon="terp-partner" context="{'group_by':'model_id'}"/>     
+		        </search>    
+		    </field>
+		</record>
+
+		<!-- Global Custom Tabs Action -->
+		<record id="global_custom_tabs_action" model="ir.actions.act_window">
+			<field name="name">Custom Global Tabs</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">ir.global.tabs</field>
+			<field name="view_mode">tree</field>
+			<field name="view_id" eval="global_custom_tabs_tree_view"/>
+			<field name="search_view_id" ref="custom_tab_search_view"/>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+				</p><p>
+				</p>
+			</field>
+		</record>
+
+
+		<record id="global_custom_tabs_update_view" model="ir.ui.view">
+			<field name="model">ir.global.tabs</field>
+			<field name="arch" type="xml">
+			<form string="Custom Global Tabs" duplicate="false">
+				<sheet>
+					<group>
+						<group>
+							<field name="name" readonly='1'/>
+							<field name="field_description"/>
+							<field name="tab_list" options="{'no_create':True}" readonly='1'/>
+						</group>
+						<group>
+							<field name="model_id" readonly='1'/>
+							<field name="view_id"/>
+							<field name="groups" options="{'no_create': True}" widget="many2many_tags"/>
+						</group>
+					</group>
+					<footer>
+						<button name="update_current_tab" type="object" string="Update Tab" class="btn btn-primary active" icon="fa-plus-square"/>
+						
+						<button string="Cancel" class="btn btn-danger disabled" special="cancel" icon="fa-times"/>
+					</footer>	
+				</sheet>
+			</form>
+			</field>
+		</record>
+
+	</data>
+</odoo>

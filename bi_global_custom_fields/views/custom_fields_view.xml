@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- Custom Fields Update View -->
+		<record id="global_custom_fields_update_view" model="ir.ui.view">
+			<field name="model">custom.fields</field>
+			<field name="arch" type="xml">
+			<form string="Update Custom Global Fields" duplicate="false">
+				<sheet>
+					<group>
+						<group>
+							<field name="name" readonly="True"/>
+							<field name="field_description"/>
+							<field name="model_id" readonly="True"/>
+							<field name ="tab_list" options="{'no_create':True}"/>
+							<field name="model_field" invisible='1'/>
+						</group>
+						<group>
+							<field name="ttype" readonly="True"/>
+							<field name="where_to_add"/>
+							<field name="view_id" invisible='1'/>
+							<field name="relation"
+									attrs="{'required': [('ttype','in',['many2one','one2many','many2many'])],
+									'readonly': [('ttype','not in',['many2one','one2many','many2many'])],
+									'invisible': [('ttype','not in',['many2one','one2many','many2many'])]}"/>
+							<field name="after_which_field" widget="selection"/>
+							<field name="help"/>
+						</group>
+					</group>
+					<notebook>
+						<page name="base" string="Properties">
+							<group string="Field Properties">
+								<group>
+									<field name="required"/>
+									<field name="readonly"/>
+									<field name="copied"/>
+								</group>
+								<group>
+									<field name="selection_ids" attrs="{'required': [('ttype','in',['selection','reference'])],
+                                    'readonly': [('ttype','not in',['selection','reference'])],
+                                    'invisible': [('ttype','not in',['selection','reference'])]}">
+		                                <tree editable="bottom">
+		                                    <field name="value"/>
+		                                    <field name="name"/>
+		                                </tree>
+			                         </field>    
+									
+									<field name="state" invisible="1"/> 
+								</group>
+							</group>
+						</page>
+						<page name="groups" string="Access Rights">
+							<field name="groups"/>
+						</page>
+						<page name="misc" string="Domains" >
+								<field name="domain_list" widget="domain" attrs="{'invisible': [('ttype','!=','many2one')]}" options="{'model': 'model_field', 'in_dialog': false}"/>
+						</page>
+					</notebook>
+					<footer>
+						<button name="write_fields"
+								type="object" string="Update CUSTOM" class="btn btn-primary active" icon="fa-pencil-square"/>
+						<button string="Cancel" class="btn btn-danger disabled" special="cancel" icon="fa-times"/>
+					</footer>
+				</sheet>
+			</form>
+			</field>
+		</record>
+
+
+		<!-- Global Custom Fields Tree View -->
+		<record id="global_custom_field_tree_view" model="ir.ui.view">
+			<field name="name">ir.models.fields.tree</field>
+			<field name="model">custom.fields</field>
+			<field name="priority">5</field>
+			<field name="arch" type="xml">
+					<tree string="Custom Global Fields" create="false">
+						<field name="name"/>
+						<field name="id" invisible='1'/>
+						<field name="field_description"/>
+						<field name="model_id"/>
+						<field name="ttype"/>
+						<field name="required"/>
+						<field name="copied"/>
+						<button name="update_field" type="object" string="Update Field" class="btn btn-outline-info btn-sm active" />
+					</tree>
+			</field>
+		</record>
+
+		<!-- Global Custom Fields Search View -->
+		<record id="global_custom_field_search_view" model="ir.ui.view">
+			<field name="name">ir.models.fields.search.view</field>
+			<field name="model">custom.fields</field>
+			<field name="arch" type="xml">
+				<search string="Student Information">
+					<filter name="fil_by_required" string="Required" domain="[('required','=','True')]" />
+					<filter name="fil_by_readonly" string="Readonly" domain="[('readonly','=','True')]" />
+					<filter name="fil_by_copied" string="Copied" domain="[('copied','=','True')]" />
+					
+					<filter name="fil_by_char" string="Char" domain="[('ttype','=','char')]" />
+					<filter name="fil_by_boolean" string="Boolean" domain="[('ttype','=','boolean')]" />
+					<filter name="fil_by_date" string="Date" domain="[('ttype','=','date')]" />
+					<filter name="fil_by_datetime" string="Datetime" domain="[('ttype','=','datetime')]" />
+					<filter name="fil_by_integer" string="Integer" domain="[('ttype','=','integer')]" />
+					<filter name="fil_by_float" string="Float" domain="[('ttype','=','float')]" />
+					<filter name="fil_by_binary" string="Binary" domain="[('ttype','=','binary')]" />
+					<filter name="fil_by_html" string="HTML" domain="[('ttype','=','html')]" />
+					<filter name="fil_by_text" string="Text" domain="[('ttype','=','text')]" />
+					<filter name="fil_by_selection" string="Selection" domain="[('ttype','=','selection')]" />
+					<filter name="fil_by_many2one" string="Many2one" domain="[('ttype','=','many2one')]" />
+					<group expand='0' string="Group by">
+						<filter name="model_fields" string="Model" icon="terp-partner" context="{'group_by':'model_id'}"/>     
+		             	<filter name="Field_type" string="Field Type" icon="terp-partner" context="{'group_by':'ttype'}"/> 
+		            </group> 
+				</search>
+			</field>
+		</record>
+
+		<!-- Global Custom Fields Action -->
+		<record id="global_custom_fields_action" model="ir.actions.act_window">
+			<field name="name">Custom Global Fields</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">custom.fields</field>
+			<field name="view_mode">tree</field>
+			<field name="view_id" eval="global_custom_field_tree_view"/>
+			<field name="search_view_id" ref="global_custom_field_search_view"/>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+				</p><p>
+				</p>
+			</field>
+		</record>
+
+		<record id="global_custom_fields_wizard_action" model="ir.actions.act_window">
+			<field name="name">Add Custom Global Fields</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">custom.fields</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="global_custom_fields_update_view"/>
+			<field name="target">new</field>
+		</record>
+
+
+		<record id="all_model_tabs_tree_view" model="ir.ui.view">
+			<field name="name">ir.models.fields.tree</field>
+			<field name="model">ir.model.tabs</field>
+			<field name="priority">5</field>
+			<field name="arch" type="xml">
+					<tree string="All model Tabs">
+						<field name="model_id"/>
+						<field name="tab_string"/>
+						<field name="position"/>
+						<field name="view_id" invisible='1'/>
+						<field name="tab_name"/>
+					</tree>
+			</field>
+		</record>
+
+
+		<record id="all_tabs_search_view" model="ir.ui.view">
+			<field name="name">ir.models.tabs.search.view</field>
+			<field name="model">ir.model.tabs</field>
+			<field name="arch" type="xml">
+				<search>
+					<group expand='0' string="Group by">
+						<filter name="model_fields" string="Model" icon="terp-partner" context="{'group_by':'model_id'}"/>     
+		            </group> 
+				</search>
+			</field>
+		</record>
+
+
+
+		<record id="all_tabs_action" model="ir.actions.act_window">
+			<field name="name">All TABS</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">ir.model.tabs</field>
+			<field name="view_mode">tree</field>
+			<field name="view_id" eval="all_model_tabs_tree_view"/>
+			<field name="search_view_id" ref="all_tabs_search_view"/>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+				</p><p>
+				</p>
+			</field>
+		</record>
+
+	</data>
+</odoo>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<act_window
+			id="global_custom_fields_partner_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="res.partner"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_user_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="res.users"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+
+		<act_window
+			id="global_custom_fields_sale_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="sale.order"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+		
+		<act_window
+			id="global_custom_fields_purchase_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="purchase.order"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_picking_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="stock.picking"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_invoice_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="account.move"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+		<act_window
+			id="global_custom_fields_product_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="product.product"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_variant_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="product.template"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_project_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="project.project"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_task_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="project.task"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_lead_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="crm.lead"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_pipeline_menu"
+			name="Add Global Custom Fields"
+			res_model="ir.models.fields.custom"
+			binding_model="crm.pipeline"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_fields_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_tab_contact_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="res.partner"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_user_tab_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="res.users"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+
+		<act_window
+			id="global_custom_fields_sale_tab_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="sale.order"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+		
+		<act_window
+			id="global_custom_fields_purchase_tab_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="purchase.order"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_picking_tab_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="stock.picking"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_invoice_tab_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="account.move"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+		<act_window
+			id="global_custom_fields_product_tab_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="product.product"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_variant_tab_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="product.template"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_fields_project_tab_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="project.project"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_tabs_task_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="project.task"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_tabs_lead_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="crm.lead"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<act_window
+			id="global_custom_tabs_pipeline_menu"
+			name="Add Global Custom Tab"
+			res_model="ir.global.tabs"
+			binding_model="crm.pipeline"
+			binding_views="form"
+			view_mode="form"
+			target="new"
+			view_id="bi_global_custom_fields.global_custom_tabs_wizard_view"  
+			groups="bi_global_custom_fields.global_custom_fields_group"
+		/>
+
+		<menuitem id="custom_global_fields_root" name="Custom Fields" sequence="3" groups="bi_global_custom_fields.global_custom_fields_group" />
+
+		<menuitem id="custom_global_fields" name="Custom Global Fields" sequence="4" parent="custom_global_fields_root" action="global_custom_fields_action"/>
+
+		<menuitem id="custom_global_tabs" name="Custom Global Tabs" sequence="4" parent="custom_global_fields_root" action="global_custom_tabs_action"/>
+
+		<!-- <menuitem id="all_model_tabs" name="All Tabs" sequence="4" parent="custom_global_fields_root" action="all_tabs_action"/> -->
+		
+	</data>
+
+</odoo>
+
+	 
